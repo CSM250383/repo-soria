@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+
+  Gestión de Temas y Artículos
+
+{% endblock %}
+
+{% block contenido %}
+
+  <h3>Vista crear nuevo Articulo :</h3>
+
+      <form method="post" action="{% url 'wikiApp:vistaCrearNuevoArticulo' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="tituloArticulo" class="form-label">Título del artículo</label>
+          <input type="text" class="form-control" name="tituloArticulo" placeholder="Ingrese el título del artículo">
+        </div>
+        <div class="mb-3">
+          <label for="temaSeleccionado" class="form-label">Seleccionar tema</label>
+          <select class="form-select" name="temaSeleccionado">
+            <option value="">Seleccione un tema</option>
+            {% for temainfo in listaTemas %}
+                <option value="{{ temainfo.0 }}">{{ temainfo.0 }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="contenidoArticulo" class="form-label">Contenido del artículo</label>
+          <textarea class="form-control" name="contenidoArticulo" rows="6" placeholder="Ingrese el contenido del artículo"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+
+{% endblock %}

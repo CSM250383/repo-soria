@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+
+  Gestión de Temas y Artículos
+
+{% endblock %}
+
+{% block contenido %}
+  
+<!-- Artículos Filtrados (lado derecho) -->
+                                
+  {% if tema_seleccionado %}
+
+      <h5>Artículos del Tema "{{ tema_seleccionado }}"</h5>
+
+      {% if listaArticulos %}
+          <ol>
+              {% for Articulo in listaArticulos %}
+                  <li>
+                      <ul class="list-group mb-3">
+                          <li class="list-group-item">
+                              <strong>Artículo:</strong> {{ Articulo.0 }}
+                          </li>
+                          <li class="list-group-item">
+                              <strong>Contenido:</strong> {{ Articulo.2 }}
+                          </li>
+                      </ul>
+                  </li>
+              {% endfor %}
+          </ol>
+      {% else %}
+          <p>No hay artículos disponibles para el tema seleccionado.</p>
+      {% endif %}
+  {% else %}
+      <h3>Selecciona un tema para ver los artículos:</h3>
+  {% endif %}
+  
+{% endblock %}

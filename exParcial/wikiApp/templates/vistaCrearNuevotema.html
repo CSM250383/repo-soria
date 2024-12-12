@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block titulo %}
+
+  Gestión de Temas y Artículos
+
+{% endblock %}
+
+{% block contenido %}
+
+ <!--Mostrar el formulario para crear un nuevo tema -->
+  
+ <h3>Vista Crear Nuevo Tema:</h3>
+
+  <form method = "post" action="{% url 'wikiApp:vistaCrearNuevotema' %}" >
+
+    {% csrf_token %}
+
+    <div class="mb-3">
+      <label for="nombreTema" class="form-label">Nombre del tema</label>
+      <input type="text" class="form-control" name="nombreTema" placeholder="Ingrese el nombre del tema">
+    </div>
+    
+    <div class="mb-3">
+      <label for="descripcionTema" class="form-label">Descripción</label>
+      <textarea class="form-control" name="descripcionTema" rows="4" placeholder="Ingrese la descripción del tema"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Registrar</button>
+
+  </form>   
+
+{% endblock %}
