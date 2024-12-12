@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('wikiApp.urls'))
     
-   #  path('vistaPrincipal', include('wikiApp.urls')),  # Asegúrate de que tu app esté correctamente incluida.
-    # path('', lambda request: redirect('vistaPrincipal', permanent=True)),  # Redirigir raíz a /vistaPrincipal
+   # path('vistaPrincipal', include('wikiApp.urls')),  # Asegúrate de que tu app esté correctamente incluida.
+   # path('', lambda request: redirect('vistaPrincipal', permanent=True)),  # Redirigir raíz a /vistaPrincipal
 
 ]
